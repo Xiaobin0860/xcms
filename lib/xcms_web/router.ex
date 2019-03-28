@@ -18,6 +18,8 @@ defmodule XcmsWeb.Router do
 
     resources "/husers", HUserController
 
+    resources "/posts", PostController
+
     get "/", PageController, :index
   end
 

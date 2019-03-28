@@ -3,7 +3,7 @@ defmodule Xcms.Repo.Migrations.CreateTHusers do
 
   def change do
     create table(:t_husers) do
-      add :name, :string
+      add :name, :string, default: "", null: false
 
       timestamps()
     end

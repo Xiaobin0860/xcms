@@ -3,8 +3,8 @@ defmodule Xcms.Repo.Migrations.CreateTJusers do
 
   def change do
     create table(:t_jusers) do
-      add :name, :string
-      add :age, :integer
+      add :name, :string, default: "", null: false
+      add :age, :integer, default: 0, null: false
 
       timestamps()
     end
