@@ -12,6 +12,5 @@ defmodule Xcms.Repo.Migrations.CreateTPosts do
 
       timestamps()
     end
-
   end
 end

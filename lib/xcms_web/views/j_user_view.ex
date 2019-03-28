@@ -11,8 +11,6 @@ defmodule XcmsWeb.JUserView do
   end
 
   def render("j_user.json", %{j_user: j_user}) do
-    %{id: j_user.id,
-      name: j_user.name,
-      age: j_user.age}
+    %{id: j_user.id, name: j_user.name, age: j_user.age}
   end
 end

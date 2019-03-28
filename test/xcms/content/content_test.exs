@@ -6,8 +6,22 @@ defmodule Xcms.ContentTest do
   describe "posts" do
     alias Xcms.Content.Post
 
-    @valid_attrs %{body: "some body", cover: "some cover", published: true, slug: "some slug", title: "some title", uid: 42}
-    @update_attrs %{body: "some updated body", cover: "some updated cover", published: false, slug: "some updated slug", title: "some updated title", uid: 43}
+    @valid_attrs %{
+      body: "some body",
+      cover: "some cover",
+      published: true,
+      slug: "some slug",
+      title: "some title",
+      uid: 42
+    }
+    @update_attrs %{
+      body: "some updated body",
+      cover: "some updated cover",
+      published: false,
+      slug: "some updated slug",
+      title: "some updated title",
+      uid: 43
+    }
     @invalid_attrs %{body: nil, cover: nil, published: nil, slug: nil, title: nil, uid: nil}
 
     def post_fixture(attrs \\ %{}) do

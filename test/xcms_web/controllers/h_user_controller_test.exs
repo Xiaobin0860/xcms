@@ -75,6 +75,7 @@ defmodule XcmsWeb.HUserControllerTest do
     test "deletes chosen h_user", %{conn: conn, h_user: h_user} do
       conn = delete(conn, Routes.h_user_path(conn, :delete, h_user))
       assert redirected_to(conn) == Routes.h_user_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.h_user_path(conn, :show, h_user))
       end
