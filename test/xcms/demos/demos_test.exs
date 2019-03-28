@@ -61,4 +61,65 @@ defmodule Xcms.DemosTest do
       assert %Ecto.Changeset{} = Demos.change_h_user(h_user)
     end
   end
+
+  describe "jusers" do
+    alias Xcms.Demos.JUser
+
+    @valid_attrs %{age: 42, name: "some name"}
+    @update_attrs %{age: 43, name: "some updated name"}
+    @invalid_attrs %{age: nil, name: nil}
+
+    def j_user_fixture(attrs \\ %{}) do
+      {:ok, j_user} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Demos.create_j_user()
+
+      j_user
+    end
+
+    test "list_jusers/0 returns all jusers" do
+      j_user = j_user_fixture()
+      assert Demos.list_jusers() == [j_user]
+    end
+
+    test "get_j_user!/1 returns the j_user with given id" do
+      j_user = j_user_fixture()
+      assert Demos.get_j_user!(j_user.id) == j_user
+    end
+
+    test "create_j_user/1 with valid data creates a j_user" do
+      assert {:ok, %JUser{} = j_user} = Demos.create_j_user(@valid_attrs)
+      assert j_user.age == 42
+      assert j_user.name == "some name"
+    end
+
+    test "create_j_user/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Demos.create_j_user(@invalid_attrs)
+    end
+
+    test "update_j_user/2 with valid data updates the j_user" do
+      j_user = j_user_fixture()
+      assert {:ok, %JUser{} = j_user} = Demos.update_j_user(j_user, @update_attrs)
+      assert j_user.age == 43
+      assert j_user.name == "some updated name"
+    end
+
+    test "update_j_user/2 with invalid data returns error changeset" do
+      j_user = j_user_fixture()
+      assert {:error, %Ecto.Changeset{}} = Demos.update_j_user(j_user, @invalid_attrs)
+      assert j_user == Demos.get_j_user!(j_user.id)
+    end
+
+    test "delete_j_user/1 deletes the j_user" do
+      j_user = j_user_fixture()
+      assert {:ok, %JUser{}} = Demos.delete_j_user(j_user)
+      assert_raise Ecto.NoResultsError, fn -> Demos.get_j_user!(j_user.id) end
+    end
+
+    test "change_j_user/1 returns a j_user changeset" do
+      j_user = j_user_fixture()
+      assert %Ecto.Changeset{} = Demos.change_j_user(j_user)
+    end
+  end
 end

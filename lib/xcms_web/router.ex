@@ -22,7 +22,9 @@ defmodule XcmsWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", XcmsWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", XcmsWeb do
+    pipe_through :api
+
+    resources "/jusers", JUserController, except: [:new, :edit]
+  end
 end
