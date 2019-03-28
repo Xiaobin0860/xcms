@@ -1,0 +1,13 @@
+<h1>Show H user</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @h_user.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.h_user_path(@conn, :edit, @h_user) %></span>
+<span><%= link "Back", to: Routes.h_user_path(@conn, :index) %></span>

@@ -16,6 +16,8 @@ defmodule XcmsWeb.Router do
   scope "/", XcmsWeb do
     pipe_through :browser
 
+    resources "/husers", HUserController
+
     get "/", PageController, :index
   end
 
